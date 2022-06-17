@@ -68,7 +68,7 @@ const bridgeContracts = {
 
 const providers = {
   97: 'https://data-seed-prebsc-1-s2.binance.org:8545/', // BSC test net
-  56: 'https://bsc-dataseed.binance.org/', // BSC main net
+  56: 'https://bsc-dataseed1.ninicoin.io', // BSC main net
   42: 'https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161', // ETH KOVAN test net
   1: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161', // ETH main net
   256: 'https://http-testnet.hecochain.com', //HECO test
