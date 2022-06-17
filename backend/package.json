@@ -1,0 +1,17 @@
+{
+  "name": "bridge",
+  "version": "1.0.0",
+  "description": "forked from EthereumCommonwealth/CallistoBridge",
+  "main": "index.js",
+  "scripts": {
+    "pm2": "pm2 start index.js --name bridge --no-autorestart"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "log4js": "^6.5.2",
+    "web3": "^1.7.3"
+  }
+}
