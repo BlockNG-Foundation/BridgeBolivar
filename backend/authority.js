@@ -52,7 +52,7 @@ const PW = process.env.PW; // Private key should be hidden
 
 const blockConfirmations = {
   97: 1, // BSC test net
-  56: 3, // BSC main net
+  56: 15, // BSC main net
   42: 1, // ETH KOVAN test net
   1: 4, // ETH main net
   256: 3,// HECO test net
