@@ -57,6 +57,7 @@ const blockConfirmations = {
   1: 4, // ETH main net
   256: 3,// HECO test net
   10000: 2,// SmartBCH main net
+  568: 1, //DOGE test
 };
 
 const bridgeContracts = {
@@ -64,15 +65,17 @@ const bridgeContracts = {
   56: '0xC9AA9aa98563c2f1AA66804E1EFa0f07A807321C', // BSC main net
   256: '0xCee23c02B819e4B9b6E34753e3c0C7f21c4bC398', // HECO test net
   10000: '0x1336001CBdb94C5cf95ee93F2dC3CA99Db382Ff4',// smartBCH main net
+  568: '0x290B5c5587B78C9bf3d9e5D7f1703749037CbE22',//DOGE test
 };
 
 const providers = {
-  97: 'https://data-seed-prebsc-1-s2.binance.org:8545/', // BSC test net
+  97: 'https://bsctestapi.terminet.io/rpc', // BSC test net
   56: 'https://bsc-dataseed1.ninicoin.io', // BSC main net
   42: 'https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161', // ETH KOVAN test net
   1: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161', // ETH main net
   256: 'https://http-testnet.hecochain.com', //HECO test
-  10000: 'https://smartbch.fountainhead.cash/mainnet' //smartBCH mainnet
+  10000: 'https://smartbch.fountainhead.cash/mainnet', //smartBCH mainnet
+  568: 'https://rpc-testnet.dogechain.dog',//DOGE test
 };
 
 const deposit_event_abi = [
