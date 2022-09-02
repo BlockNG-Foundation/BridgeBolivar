@@ -58,6 +58,7 @@ const blockConfirmations = {
   256: 3,// HECO test net
   10000: 2,// SmartBCH main net
   568: 1, //DOGE test
+  2000: 3,//DOGE CHAIN main net
 };
 
 const bridgeContracts = {
@@ -66,6 +67,7 @@ const bridgeContracts = {
   256: '0xCee23c02B819e4B9b6E34753e3c0C7f21c4bC398', // HECO test net
   10000: '0x1336001CBdb94C5cf95ee93F2dC3CA99Db382Ff4',// smartBCH main net
   568: '0x290B5c5587B78C9bf3d9e5D7f1703749037CbE22',//DOGE test
+  2000: '0x403bc08DdE4272b91D31155E6905575dd3c1f283',//DOGE main net
 };
 
 const providers = {
@@ -76,6 +78,7 @@ const providers = {
   256: 'https://http-testnet.hecochain.com', //HECO test
   10000: 'https://smartbch.fountainhead.cash/mainnet', //smartBCH mainnet
   568: 'https://rpc-testnet.dogechain.dog',//DOGE test
+  2000: 'https://rpc-us.dogechain.dog',//DOGE mainnet
 };
 
 const deposit_event_abi = [
