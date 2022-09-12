@@ -78,7 +78,7 @@ const providers = {
   256: 'https://http-testnet.hecochain.com', //HECO test
   10000: 'https://smartbch.fountainhead.cash/mainnet', //smartBCH mainnet
   568: 'https://rpc-testnet.dogechain.dog',//DOGE test
-  2000: 'https://rpc-us.dogechain.dog',//DOGE mainnet
+  2000: 'https://rpc.dogechain.dog',//DOGE mainnet
 };
 
 const deposit_event_abi = [
