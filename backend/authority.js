@@ -62,7 +62,7 @@ const blockConfirmations = {
 };
 
 const bridgeContracts = {
-  1: '',// ETH main net
+  1: '0xC30B6B57BEC9020a95e0a6CF275b43CC00C9d3f0',// ETH main net
   5: '0x2f30cf73b5e4E4f79f6aEE1A5871f5E29c1caE98',// Goerli test net
   97: '0xfa581215b134E5623830E44cE1E37Fb9830dD412', // BSC test net
   56: '0xC9AA9aa98563c2f1AA66804E1EFa0f07A807321C', // BSC main net
@@ -76,7 +76,7 @@ const providers = {
   97: 'https://bsctestapi.terminet.io/rpc', // BSC test net
   56: 'https://bsc-dataseed1.ninicoin.io', // BSC main net
   42: 'https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161', // ETH KOVAN test net
-  1: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161', // ETH main net
+  1: 'https://rpc.ankr.com/eth', // ETH main net
   5: 'https://goerli.infura.io/v3/680f44b87fb44b4d93ae840a276a4d23', // Goerli test net
   256: 'https://http-testnet.hecochain.com', //HECO test
   10000: 'https://smartbch.fountainhead.cash/mainnet', //smartBCH mainnet
