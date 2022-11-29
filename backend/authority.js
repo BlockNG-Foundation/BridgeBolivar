@@ -79,7 +79,8 @@ const providers = {
   1: 'https://rpc.ankr.com/eth', // ETH main net
   5: 'https://goerli.infura.io/v3/680f44b87fb44b4d93ae840a276a4d23', // Goerli test net
   256: 'https://http-testnet.hecochain.com', //HECO test
-  10000: 'https://smartbch.fountainhead.cash/mainnet', //smartBCH mainnet
+  //10000: 'https://smartbch.fountainhead.cash/mainnet', //smartBCH mainnet
+  10000: 'https://global.uat.cash', //smartBCH mainnet
   568: 'https://rpc-testnet.dogechain.dog',//DOGE test
   2000: 'https://rpc.dogechain.dog',//DOGE mainnet
 };
