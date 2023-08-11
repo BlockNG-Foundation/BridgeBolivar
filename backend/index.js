@@ -3,12 +3,24 @@
     for example: http://127.0.0.1:3000/auth?tx=0x67eba02bcea4aa35d64e3e5d1adcf089c42b586d57669cf683e22573358846c3&chain=97
     should returns JSON with bridge address to call function claim() and required parameters:
     {
-        "isSuccess":true,
-        "signature":"0xadd441ba65cc9b691abe4208bf693afe211225da1146d6a7f26fd7acbc24475c5d230b2d9d14d2c662f06719c68fe6f749e89c1ba661703cdf3fed370967e45f1b",
-        "token":"0x0000000000000000000000000000000000000001",
-        "value":"1000000000000000000",
-        "to":"0xC7d98c4c919E93eD44755718E27b53791E7F3521",
-        "bridge":"0x05ef4B789C75c02d5182e6EfB7c64230Ec9B58b2"
+        "isSuccess": true,
+        "signature": "0xadd441ba65cc9b691abe4208bf693afe211225da1146d6a7f26fd7acbc24475c5d230b2d9d14d2c662f06719c68fe6f749e89c1ba661703cdf3fed370967e45f1b",
+        "token": "0x0000000000000000000000000000000000000001",
+        "value": "1000000000000000000",
+        "to": "0xC7d98c4c919E93eD44755718E27b53791E7F3521",
+        "bridge": "0x05ef4B789C75c02d5182e6EfB7c64230Ec9B58b2"
+    }
+
+    call /authNFT?tx= transaction hash &chain= chain Id where transaction was sent
+    for example: http://127.0.0.1:3000/authNFT?tx=0x67eba02bcea4aa35d64e3e5d1adcf089c42b586d57669cf683e22573358846c3&chain=97
+    should returns JSON with bridge address to call function claim() and required parameters:
+    {
+        "isSuccess": true,
+        "signature": "0xadd441ba65cc9b691abe4208bf693afe211225da1146d6a7f26fd7acbc24475c5d230b2d9d14d2c662f06719c68fe6f749e89c1ba661703cdf3fed370967e45f1b",
+        "token": "0x0000000000000000000000000000000000000001",
+        "value": [1, 2, 3],
+        "to": "0xC7d98c4c919E93eD44755718E27b53791E7F3521",
+        "bridge": "0x05ef4B789C75c02d5182e6EfB7c64230Ec9B58b2"
     }
 
     txId and fromChainId is the same as used for signature request.
@@ -29,11 +41,12 @@ const requestHandler = (request, response) => {
   // if process request to authorize swap
   switch (url.pathname) {
     case '/auth':
+    case '/authNFT':
       const params = url.searchParams;
       const txId = params.get('tx'); // transaction ID
       const fromChainId = params.get('chain'); // transaction chain ID
       auth
-        .authorize(txId, fromChainId)
+        .authorize(txId, fromChainId, url.pathname === '/authNFT')
         .then(resp => {
           response.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
           response.end(JSON.stringify(resp));
