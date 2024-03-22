@@ -42,11 +42,12 @@ const requestHandler = (request, response) => {
   switch (url.pathname) {
     case '/auth':
     case '/authNFT':
+    case '/authBase':
       const params = url.searchParams;
       const txId = params.get('tx'); // transaction ID
       const fromChainId = params.get('chain'); // transaction chain ID
       auth
-        .authorize(txId, fromChainId, url.pathname === '/authNFT')
+        .authorize(txId, fromChainId, url.pathname === '/authNFT', url.pathname === '/authBase')
         .then(resp => {
           response.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
           response.end(JSON.stringify(resp));
