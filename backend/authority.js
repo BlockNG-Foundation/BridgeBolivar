@@ -74,6 +74,11 @@ const BRIDGE_CONTRACTS = {
   2000: '0x403bc08DdE4272b91D31155E6905575dd3c1f283', // DOGE main net
 };
 
+const BRIDGE_BASE_CONTRACTS = {
+  10000: '0x3436721e298F58E600099AA702aE4d9fe4f83764', // smartBCH main net
+  8453: '0xcc199ce3d29d8daf4ebb26869c998821188b81b6', // Base Mainnet
+};
+
 const BRIDGE_NFT_CONTRACTS = {
   1: '0x4b5981260f634F010210267966b2D992ea6271C7', // ETH main net
   5: '0x4b5981260f634F010210267966b2D992ea6271C7', // Goerli test net
@@ -120,14 +125,18 @@ const DEPOSIT_NFT_EVENT_TOPIC = '0x01a1b3d39327ab854916744d7d48fd8cdf760307cbf31
 //         isNFT: "true" for NFT bridge, "false" for token bridge
 // returns: on success {isSuccess: true, message: sig.signature};
 // on error: {isSuccess: false, message: error_message};
-async function authorize(txId, fromChainId, isNFT = false) {
+async function authorize(txId, fromChainId, isNFT = false, isBase = false) {
   const provider = PROVIDERS[fromChainId];
   if (!provider) {
     const msg = `No provider for chain ID: ${fromChainId}`;
     logger.error(msg);
     return { isSuccess: false, message: msg };
   }
-  const bridgeContract = isNFT ? BRIDGE_NFT_CONTRACTS[fromChainId] : BRIDGE_CONTRACTS[fromChainId];
+  const bridgeContract = isNFT
+    ? BRIDGE_NFT_CONTRACTS[fromChainId]
+    : isBase
+    ? BRIDGE_BASE_CONTRACTS[fromChainId]
+    : BRIDGE_CONTRACTS[fromChainId];
   if (!bridgeContract) {
     const msg = `No bridgeContract for chain ID: ${fromChainId}`;
     logger.error(msg);
@@ -175,7 +184,11 @@ async function authorize(txId, fromChainId, isNFT = false) {
               value: isNFT ? p.tokens : p.value,
               to: p.sender,
               chainId: p.toChainId,
-              bridge: isNFT ? BRIDGE_NFT_CONTRACTS[p.toChainId] : BRIDGE_CONTRACTS[p.toChainId],
+              bridge: isNFT
+                ? BRIDGE_NFT_CONTRACTS[p.toChainId]
+                : isBase
+                ? BRIDGE_BASE_CONTRACTS[p.toChainId]
+                : BRIDGE_CONTRACTS[p.toChainId],
             };
             return ret;
           }
